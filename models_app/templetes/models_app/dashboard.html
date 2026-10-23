@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">AI Model Hub</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for model in ['gpt','llama','gemini','perplexity','claude'] %}
+  <div class="col">
+    <div class="card text-center shadow-sm h-100">
+      <div class="card-body">
+        <h5 class="card-title">{{ model|capfirst }}</h5>
+        <a href="{% url 'ai_model' model %}" class="btn btn-primary">Use {{ model|capfirst }}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+ 

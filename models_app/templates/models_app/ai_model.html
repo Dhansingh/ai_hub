@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">{{ model_name|capfirst }} AI</h2>
+<form method="POST" class="mb-4">
+    {% csrf_token %}
+    <textarea class="form-control mb-2" name="prompt" rows="5" placeholder="Enter prompt...">{{ request.POST.prompt }}</textarea>
+    <button type="submit" class="btn btn-success w-100">Submit</button>
+</form>
+
+{% if response %}
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">{{ model_name|capfirst }} Response</div>
+  <div class="card-body"><p>{{ response }}</p></div>
+</div>
+{% endif %}
+<a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

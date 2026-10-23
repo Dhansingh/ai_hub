@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+ <h2>Available AI Models</h2>
+<ul>
+    {% for model in models %}
+        <li><a href="{% url 'ai_model' model %}">{{ model|title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+</div>
